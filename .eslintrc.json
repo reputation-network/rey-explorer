@@ -1,0 +1,13 @@
+{
+    "extends": ["node", "node/style-guide"],
+    "env": {
+        "node": true
+    },
+    "rules": {
+        "indent": ["error", 2],
+        "semi": ["error", "always"],
+        "import/no-nodejs-modules": ["error", {"allow": ["path"]}],
+        "no-unused-vars": ["error", { "argsIgnorePattern": "next" }],
+        "no-console": ["error", { "allow": ["warn"] }]
+    }
+}

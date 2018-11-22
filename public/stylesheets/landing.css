@@ -1,0 +1,33 @@
+#landing-box {
+  margin-top: 140px; }
+  #landing-box h1 {
+    font-size: 20px;
+    letter-spacing: 2px;
+    line-height: 30px;
+    margin: 22px 0; }
+  #landing-box p {
+    color: #ACACAC;
+    margin-top: 40px; }
+
+#landing-actions-box {
+  width: 60%;
+  margin: 0 auto; }
+
+#metamask-btn {
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5); }
+  #metamask-btn span {
+    padding: 0 40px; }
+
+#landing-address-bar {
+  border-bottom: 1px solid #2CBFD1;
+  margin-bottom: 64px;
+  overflow: hidden;
+  padding: 12px; }
+  #landing-address-bar input {
+    font-size: 12px; }
+
+#landing-contact {
+  color: #ACACAC;
+  font-size: 12px;
+  margin: 43px 0 0; }

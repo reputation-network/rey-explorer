@@ -1,0 +1,13 @@
+.row.header
+  if back
+    .col-sm-5.col-12.align-self-center
+      a.header-back(href=back) < back
+  else
+    .col-sm-5.col-12.text-md-left.text-center
+      a(href='/')
+        img(src='/images/logo.svg')
+  .col-lg-5.offset-lg-2.col-md-6.offset-md-1.col-10.offset-1
+    form.address-search.row(onsubmit="location.href='/address/' + document.getElementById('address-search-input-header').value;return false;")
+      input.col-10#address-search-input-header
+      input.pb-2.col-2(type="image" src="/images/ic_magnifier.svg")
+

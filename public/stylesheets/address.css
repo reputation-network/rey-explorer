@@ -1,0 +1,48 @@
+.background-sweked-line-address:after {
+  top: -250px; }
+
+.header {
+  color: #2CBFD1;
+  padding: 78px 0 0;
+  overflow: auto; }
+  .header .address-search {
+    margin-left: 20px; }
+    .header .address-search input {
+      color: #2CBFD1; }
+
+.app-summary-container {
+  padding-top: 78px; }
+  .app-summary-container a {
+    margin-left: 10px;
+    font-size: 12px; }
+  .app-summary-container p {
+    color: #7D7D7D;
+    margin: 10px 0 0; }
+
+.app-dev-container {
+  margin-top: 42px; }
+  .app-dev-container ul {
+    color: white;
+    margin-top: 20px; }
+
+.app-picture {
+  max-width: 100%;
+  padding: 0 10px; }
+
+.sessions-container {
+  padding-top: 78px; }
+  .sessions-container .box-content {
+    font-size: 14px;
+    padding-top: 0px;
+    padding-bottom: 10px; }
+  .sessions-container .transaction-row {
+    border-top: 1px solid #2CBFD1;
+    padding: 10px 0; }
+  .sessions-container .transaction-row:first-of-type {
+    border-top: 0; }
+
+.transaction-line {
+  background-image: linear-gradient(to right, white, #63C8D6, white);
+  height: 5px;
+  margin: 18px 0;
+  width: 100%; }

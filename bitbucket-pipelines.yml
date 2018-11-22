@@ -1,0 +1,31 @@
+pipelines:
+  default:
+    - step:
+        name: Build Docker image
+        caches:
+          - docker
+        script:
+          - docker build -t rey-explorer .
+  branches:
+    production:
+      - step:
+          name: Deploy to Heroku
+          deployment: production
+          caches:
+            - docker
+          script:
+            - export HEROKU_APP_NAME="rey-explorer-production"
+            - export HEROKU_REGISTRY_URL="registry.heroku.com/$HEROKU_APP_NAME/web"
+            - docker login -u _ -p $HEROKU_API_KEY registry.heroku.com
+            - docker build -t $HEROKU_APP_NAME .
+            - docker tag $HEROKU_APP_NAME $HEROKU_REGISTRY_URL
+            - export DOCKER_IMAGE_ID=$(docker inspect $HEROKU_APP_NAME --format={{.Id}})
+            - docker push $HEROKU_REGISTRY_URL
+            - >
+              curl -n -X PATCH https://api.heroku.com/apps/$HEROKU_APP_NAME/formation
+              -H "Content-Type: application/json"
+              -H "Accept: application/vnd.heroku+json; version=3.docker-releases"
+              -H "Authorization: Bearer $HEROKU_API_KEY"
+              -d "{\"updates\":[{\"type\":\"web\",\"docker_image\":\"$DOCKER_IMAGE_ID\"}]}"
+options:
+  docker: true

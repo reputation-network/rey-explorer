@@ -1,0 +1,87 @@
+extends layout
+
+block content
+
+  .background-dark
+    .container
+      include _header.pug
+      #address.text-center
+        h1 Address: #{address}
+      if manifest
+        .row.app-summary-container
+          .col-md-8.offset-md-2
+            .row
+              .col-md-3.col-0.app-picture-container
+                img(class="app-picture app-picture-" + address)
+
+              .col-md-9.col-12
+                .box
+                  .box-content
+                    h2.d-inline #{manifest.name} #{manifest.version}
+                    if manifest.homepage_url
+                      a.d-inline(href= manifest.homepage_url) Visit website
+                    p= manifest.description
+        script.
+          var manifest = !{ JSON.stringify(manifest) };
+          var address = "!{ address }";
+          setAppPictures(address, manifest);
+
+        .row.app-dev-container
+          .col-md-8.offset-md-2
+            ul
+              if manifest.app_url
+                li App URL: #{manifest.app_url}
+              if manifest.app_reward
+                li Price per sucessful request: #{manifest.app_reward} wei
+              if manifest.app_dependencies && manifest.app_dependencies.length > 0
+                li Dependencies: #{manifest.app_dependencies}
+              else
+                li No dependencies
+
+  if sessions && Object.keys(sessions).length > 0
+    .background-skewed-line.background-sweked-line-address
+      .container
+        .sessions-container
+          each transactions, nonce in sessions
+            .row
+              .col
+                .box
+                  .box-header
+                    .row
+                      .col-10.offset-1
+                        h3 SESSION ID: #{nonce}
+                  .box-content.row
+                    .col-10.offset-1
+                      each transaction in transactions
+                        .transaction-row.row
+                          .col-md-9.col-8.align-self-center
+                            a(href= '/address/' + address +  '/tx/' + transaction.id) #{transaction.readerApp.name} received data from #{transaction.sourceApp.name}
+                          .col-md-3.col-4
+                            .row.no-gutters
+                              .col-3
+                                .text-center
+                                  a(href= '/address/' + transaction.request.readPermission.reader)
+                                    img(class="app-picture-" + transaction.request.readPermission.reader)
+                              .col-6.px-1
+                                .transaction-line
+                              .col-3
+                                .text-center
+                                  a(href= '/address/' + transaction.request.readPermission.source)
+                                    img(class="app-picture-" + transaction.request.readPermission.source)
+
+                        script.
+                          transaction = !{ JSON.stringify(transaction) };
+                          setAppPictures(transaction.request.readPermission.reader, transaction.readerApp);
+                          setAppPictures(transaction.request.readPermission.source, transaction.sourceApp);
+  else
+    style body {background: black}
+
+  if !manifest && (!sessions ||  Object.keys(sessions).length == 0)
+    .container#address-empty
+      .row
+        .col-12.text-center.error-container
+          img(src='/images/spren_shadow.svg')
+          h1 OOOOPS!
+          p THERE IS NOTHING IN THIS ADDRESS
+          a(href='/') Go back
+

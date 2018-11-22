@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="161px" height="70px" viewBox="0 0 161 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-68.6%" y="-92.1%" width="237.3%" height="284.2%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="9" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.160784314   0 0 0 0 0.682352941   0 0 0 0 0.749019608  0 0 0 0.671450408 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD-Copy-14" transform="translate(-235.000000, -37.000000)">
+            <g id="Group" transform="translate(252.000000, 52.000000)">
+                <text id="REY" font-family="Avenir-Light, Avenir" font-size="18" font-weight="300" letter-spacing="19.02857" fill="#29AEBF">
+                    <tspan x="74" y="27">REY</tspan>
+                </text>
+                <g id="Page-1" filter="url(#filter-1)">
+                    <polygon id="Fill-1" fill="#1B8992" points="45.2260991 2.83039873 33.9625919 11.4126266 39.5970043 18.6730316"></polygon>
+                    <polygon id="Fill-2" fill="#2CBFD1" points="5.26856588 3.05260253 16.4240303 11.5715772 10.7898597 18.8319823"></polygon>
+                    <polygon id="Fill-3" fill="#2CBFD1" points="25.73489 37.9326582 50.9496768 28.2683924 45.2260749 2.73503797 39.6129327 18.5047975 25.2531697 0"></polygon>
+                    <polygon id="Fill-4" fill="#64C8D6" points="10.792591 18.8685392 5.26839668 3.05284304 -7.25118483e-05 26.7941848 25.7348659 37.9327544 25.2531455 0.25383038"></polygon>
+                </g>
+                <rect id="Rectangle-4" fill="#000000" x="104" y="15" width="11" height="5"></rect>
+                <rect id="Rectangle-4-Copy" fill="#000000" x="104" y="21" width="11" height="5"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

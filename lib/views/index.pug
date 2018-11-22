@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  #landing.background-skewed-line
+    .container
+      .row#landing-parent
+        #landing-box.box.col-12.col-lg-10.offset-lg-1.text-center
+          .box-content
+            img.spren-gif(src='/images/spren.gif')
+            h1 REPUTATION NETWORK EXPLORER
+            h2 A traceable, user permissioned platform for personal data computation. #[a(href='https://reputation.network') Know more]
+            //- A TRACEABLE, USER-PERMISSIONED PLATFORM FOR PERSONAL DATA COMPUTATION
+            .row
+              .col-md-8.offset-md-2
+                button#metamask-btn.btn.btn-primary.btn-lg.btn-block(onclick="onMetamaskButtonClicked();")
+                  .row
+                    .col-9.col-sm-6.offset-sm-2.align-self-center
+                      span Explore my own data
+                    .col-3.col-sm-4
+                      img(src='/images/metamask.svg')
+                p - or -
+                form#landing-address-bar(onsubmit="location.href = '/address/' + document.getElementById('landing-address-input').value;return false;")
+                  .row.no-gutters
+                    .col-7.col-sm-9
+                      input#landing-address-input(type='text', placeholder='Type a Reputation Network address')
+                    .col-5.col-sm-3
+                      button.btn.btn-primary.btn-lg Explore!
+      #landing-contact.row.text-center
+        p.col-12 If you have any question please #[a(href='mailto:hello@reputation.network') contact us]

@@ -1,0 +1,51 @@
+extends layout
+
+
+block content
+  style body {background: black}
+
+  .container
+    include _header.pug
+
+    .row.transaction-raw
+      .col-12
+        #transaction-viz.text-center
+          .d-none.d-md-block
+            video#transaction-video-start.transaction-video(autoplay='autoplay', muted="muted")
+              source(src='/videos/bg_transaction_start.mp4', type='video/mp4')
+            video#transaction-video-loop.transaction-video(loop="loop", muted="muted")
+              source(src='/videos/bg_transaction_loop.mp4', type='video/mp4')
+          .d-md-none
+            img.transaction-video-placeholder(src='/images/bg_transaction.png', width='700px')
+          #transaction-viz-icons
+            .row
+              .col-12.text-center
+                a(href= '/address/' + transaction.request.readPermission.reader)
+                  img(class="transaction-app-icon-top app-picture-" + transaction.request.readPermission.reader)
+            .row
+              .col-12.text-center
+                p= transaction.readerApp.name
+            .row.transaction-viz-line
+            .row
+              .col-12.text-center
+                a(href= '/address/' + transaction.request.readPermission.source)
+                  img(class="transaction-app-icon-bottom app-picture-" + transaction.request.readPermission.source)
+            .row
+              .col-12.text-center
+                p= transaction.sourceApp.name
+
+      p #[em #{transaction.readerApp.name}] received data about #[em #{address}] from #[em #{transaction.sourceApp.name}]. This transaction has been verified by the Reputation Network Smart Contracts and the #[a(href="https://rey.readthedocs.io/en/latest/contents/reference/transactions.html") transaction metadata] has been written to the Ethereum blockchain:
+      #transaction-raw
+
+    script(src='/javascripts/lib/renderjson.js')
+    script.
+      renderjson.set_show_to_level(2);
+      document.getElementById("transaction-raw").appendChild(
+        renderjson(!{JSON.stringify(tx)})
+      );
+
+      transaction = !{ JSON.stringify(transaction) };
+      setAppPictures(transaction.request.readPermission.reader, transaction.readerApp);
+      setAppPictures(transaction.request.readPermission.source, transaction.sourceApp);
+
+

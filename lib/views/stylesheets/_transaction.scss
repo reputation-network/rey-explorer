@@ -1,0 +1,80 @@
+.transaction-video {
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  @include media-breakpoint-up(lg) {
+    height: 650px;
+    width: 800px;
+  }
+  @include media-breakpoint-down(md) {
+    display: none;
+  }
+}
+
+.transaction-video-placeholder {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+#transaction-video-start {
+  display: block;
+}
+
+#transaction-video-loop {
+  display: none;
+}
+
+#transaction-viz {
+  position: relative;
+  color: white;
+}
+
+#transaction-viz-icons {
+  position: absolute;
+  top: 30px;
+  width: 100%;
+
+  @include media-breakpoint-up(sm) {
+    top: 100px;
+  }
+
+  @include media-breakpoint-up(lg) {
+    top: 140px;
+  }
+}
+
+.transaction-app-icon-top {
+  height: 60px;
+  @include media-breakpoint-up(md) {
+    height: 80px;
+  }
+}
+
+.transaction-app-icon-bottom {
+  height: 80px;
+  @include media-breakpoint-up(md) {
+    height: 120px;
+  }
+}
+
+.transaction-viz-line {
+  height: 60px;
+  width: 3px;
+  margin: auto;
+  background-image: linear-gradient(to bottom, rgba(255,0,0,0), #B0E2E8, rgba(255,0,0,0));
+  @include media-breakpoint-up(md) {
+    height: 140px;
+  }
+}
+
+.transaction-raw {
+  padding: 0 10px;
+  color: $font-color-accent;
+
+  pre {
+    color: $font-color-accent;
+    @include media-breakpoint-down(md) {
+      font-size: 10px;
+    }
+  }
+}

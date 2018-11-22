@@ -1,0 +1,100 @@
+#address {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  padding: 30px 0 50px;
+}
+
+.background-sweked-line-address:after {
+  top: -250px;
+}
+
+.app-summary-container {
+  text-align: center;
+
+  a {
+    margin-left: 10px;
+    font-size: 12px;
+  }
+  p {
+    color: #7D7D7D;
+    margin: 10px 0 0;
+  }
+
+  @include media-breakpoint-up(md) {
+    text-align: left;
+  }
+}
+
+
+.app-dev-container {
+  margin-top: 10px;
+  padding-bottom: 50px;
+
+  ul {
+    color: white;
+    margin-top: 20px;
+  }
+}
+
+.app-picture-container {
+  @include media-breakpoint-down(sm) {
+    height: 10px;
+  }
+}
+
+.app-picture {
+  // display: none;
+  max-width: 100%;
+  padding: 0 10px;
+
+  @include media-breakpoint-down(sm) {
+    height: 80px;
+    position: relative;
+    top: -40px;
+    z-index: 1;
+  }
+}
+
+.sessions-container {
+  padding-bottom: 40px;
+
+  .box-content {
+    font-size: 14px;
+    padding-top: 0px;
+    padding-bottom: 10px;
+  }
+
+  .transaction-row {
+    border-top: 1px solid $brand-blue;
+    padding: 10px 0;
+    font-size: 15px;
+  }
+
+  .transaction-row:first-of-type  {
+    border-top: 0;
+  }
+
+  img {
+    width: 100%;
+    object-fit: scale-down;
+  }
+}
+
+.transaction-line {
+  background-image: linear-gradient(to right, white, #63C8D6, white);
+  height: 3px;
+  margin: 18px 0;
+  width: 100%;
+}
+
+.session-app-icon {
+  height: 40px;
+}
+
+#address-empty img {
+  margin-top: 0;
+
+  @include media-breakpoint-up(md) {
+    margin-top: 100px;
+  }
+}
