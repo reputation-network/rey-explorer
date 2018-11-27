@@ -28,15 +28,15 @@ block content
 
         .row.app-dev-container
           .col-md-8.offset-md-2
-            ul
-              if manifest.app_url
-                li App URL: #{manifest.app_url}
-              if manifest.app_reward
-                li Price per sucessful request: #{manifest.app_reward} wei
-              if manifest.app_dependencies && manifest.app_dependencies.length > 0
-                li Dependencies: #{manifest.app_dependencies}
-              else
-                li No dependencies
+            #manifest-raw
+
+        script.
+          renderjson.set_show_to_level(2);
+          document.getElementById("manifest-raw").appendChild(
+            renderjson(!{JSON.stringify(manifest)})
+          );
+          transformRenderjsonUrlsToLinks("manifest-raw");
+
 
   if sessions && Object.keys(sessions).length > 0
     .background-skewed-line.background-sweked-line-address
@@ -73,6 +73,7 @@ block content
                           transaction = !{ JSON.stringify(transaction) };
                           setAppPictures(transaction.request.readPermission.reader, transaction.readerApp);
                           setAppPictures(transaction.request.readPermission.source, transaction.sourceApp);
+
   else
     style body {background: black}
 

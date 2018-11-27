@@ -37,12 +37,12 @@ block content
       p #[em #{transaction.readerApp.name}] received data about #[em #{address}] from #[em #{transaction.sourceApp.name}]. This transaction has been verified by the Reputation Network Smart Contracts and the #[a(href="https://rey.readthedocs.io/en/latest/contents/reference/transactions.html") transaction metadata] has been written to the Ethereum blockchain:
       #transaction-raw
 
-    script(src='/javascripts/lib/renderjson.js')
     script.
       renderjson.set_show_to_level(2);
       document.getElementById("transaction-raw").appendChild(
         renderjson(!{JSON.stringify(tx)})
       );
+      transformRenderjsonUrlsToLinks("transaction-raw");
 
       transaction = !{ JSON.stringify(transaction) };
       setAppPictures(transaction.request.readPermission.reader, transaction.readerApp);

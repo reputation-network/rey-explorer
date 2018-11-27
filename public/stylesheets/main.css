@@ -6536,6 +6536,9 @@ a {
     #address-empty img {
       margin-top: 100px; } }
 
+#manifest-raw pre {
+  color: #2CBFD1; }
+
 .transaction-video {
   height: 100%;
   width: 100%;

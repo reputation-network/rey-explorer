@@ -49,3 +49,13 @@ if (txVideoStart !== undefined && txVideoLoop != undefined) {
 }
 
 
+function transformRenderjsonUrlsToLinks(id) {
+  document.querySelectorAll('#' + id + ' > pre > span > span:nth-child(2) > span').forEach(
+    function(currentValue) {
+      if (currentValue.textContent.startsWith('"http')) {
+        currentValue.innerHTML = '<a href=' + currentValue.textContent + '>' + currentValue.textContent + '</a>';
+      }
+    }
+  );
+}
+

@@ -31,6 +31,7 @@ You can build and run the node project locally:
 
     git clone git@github.com:reputation-network/rey-explorer.git && cd rey-explorer
     yarn install
+    yarn prepare
     yarn start
 
 ### Development
@@ -38,7 +39,8 @@ You can build and run the node project locally:
 You can enable _nodemon_ so that the server restarts on changes.
 
     yarn install --dev
-    yarn devstart
+    yarn prepare
+    yarn start:dev
 
 ## Environment variables
 
