@@ -52,8 +52,11 @@ if (txVideoStart !== undefined && txVideoLoop != undefined) {
 function transformRenderjsonUrlsToLinks(id) {
   document.querySelectorAll('#' + id + ' > pre > span > span:nth-child(2) > span').forEach(
     function(currentValue) {
-      if (currentValue.textContent.startsWith('"http')) {
-        currentValue.innerHTML = '<a href=' + currentValue.textContent + '>' + currentValue.textContent + '</a>';
+      var text = currentValue.textContent;
+      if (text.startsWith('"http')) {
+        currentValue.innerHTML = '<a href=' + text + '>' + text + '</a>';
+      } else if (text.startsWith('"0x')) {
+        currentValue.innerHTML = '<a href="/address/' + text.replace('"', '') + '">' + text + '</a>';
       }
     }
   );
