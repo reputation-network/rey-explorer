@@ -34,7 +34,7 @@ block content
               .col-12.text-center
                 p= transaction.sourceApp.name
 
-      p #[em #{transaction.readerApp.name}] received data about #[em #{address}] from #[em #{transaction.sourceApp.name}]. This transaction has been verified by the Reputation Network Smart Contracts and the #[a(href="https://rey.readthedocs.io/en/latest/contents/reference/transactions.html") transaction metadata] has been written to the Ethereum blockchain:
+      p #[a(href="/address/#{transaction.readerApp.address}") #{transaction.readerApp.name}] received data about #[a(href="/address/#{address}") #{address}] from #[a(href="/address/#{transaction.sourceApp.address}") #{transaction.sourceApp.name}].
       #transaction-raw
 
     script.
