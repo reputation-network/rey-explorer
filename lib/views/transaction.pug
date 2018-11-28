@@ -34,7 +34,7 @@ block content
               .col-12.text-center
                 p= transaction.sourceApp.name
 
-      p #[a(href="/address/" + transaction.readerApp.address) #{transaction.readerApp.name}] received data about #[a(href="/address/" + address) #{address}] from #[a(href="/address/" + transaction.sourceApp.address) #{transaction.sourceApp.name}].
+      p #[a(href="/address/" + transaction.request.readPermission.reader) #{transaction.readerApp.name}] received data about #[a(href="/address/" + address) #{address}] from #[a(href="/address/" + transaction.request.readPermission.source) #{transaction.sourceApp.name}].
       #transaction-raw
 
     script.
